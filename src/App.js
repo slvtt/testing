@@ -54,8 +54,7 @@ function App() {
         todo.completed = !todo.completed;
         axios.patch(`http://localhost:8000/state/${id}`, {
           completed: todo.completed,
-        });// .then((res) => setState({ completed: res.data.completed }))
-          // this function isnt work((
+        });
       }
       return todo;
     }));
