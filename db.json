@@ -1,14 +1,3 @@
 {
-  "state": [
-    {
-      "id": 1623147130843,
-      "title": "Make first",
-      "completed": true
-    },
-    {
-      "id": 1623147215771,
-      "title": "Make second",
-      "completed": false
-    }
-  ]
+  "state": []
 }

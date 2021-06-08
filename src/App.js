@@ -5,17 +5,17 @@ import TodoList from './components/list';
 
 function App() {
   const [state, setState] = useState([]);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const [toDoTitle, setTodoTitle] = useState('');
 
   useEffect(() => {
-    fetch(' http://localhost:8000/state')
+    fetch(API_URL)
       .then((res) => res.json())
       .then((res) => setState(res)).catch(() => alert('похоже, вы не включили сервер. Включите сервер и повторите попытку'));
   }, []);
 
   const removeTodo = (id) => {
-    axios.delete(`http://localhost:8000/state/${id}`);
+    axios.delete(`${API_URL + id}`);
     setState(state.filter((todo) => todo.id !== id));
   };
 
@@ -31,11 +31,11 @@ function App() {
           completed: false,
         },
       ]);
-      axios.post('http://localhost:8000/state', {
+      axios.post(API_URL, {
         id: Date.now(),
         title: toDoTitle,
         completed: false,
-      }).then((res) => console.log(res));
+      });
       setTodoTitle('');
     } else {
       alert('Вы ничего не ввели!');
@@ -52,7 +52,7 @@ function App() {
     setState(state.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
-        axios.patch(`http://localhost:8000/state/${id}`, {
+        axios.patch(`${API_URL + id}`, {
           completed: todo.completed,
         });
       }
@@ -75,7 +75,10 @@ function App() {
                   <button onClick={handleSubmit} className=" btn card-panel teal lighten-2">Отправить</button>
               </div>
 
-              <TodoList todos={state} removeTodo={removeTodo} toggleToDo = {toggleToDo} />
+              <TodoList todos={state}
+                        removeTodo={removeTodo}
+                        toggleToDo = {toggleToDo}
+                        apiUrl = {API_URL} />
           </div>
 
   );

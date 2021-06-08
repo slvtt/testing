@@ -3,14 +3,13 @@ import { FormControlLabel, Checkbox, Container } from '@material-ui/core';
 import axios from 'axios';
 
 export default function TodoItem({
-  title, id, completed, removeTodo, toggleTodo,
+  title, id, completed, removeTodo, toggleTodo, apiURl,
 }) {
   const [checked] = useState(completed);
   const [text, setText] = useState(title);
   const [newText, setNewText] = useState(text);
 
   const [edit, setEdit] = useState(null);
-
   const editToDo = (editId) => {
     setEdit(editId);
   };
@@ -22,7 +21,7 @@ export default function TodoItem({
     setNewText(text);
     setEdit(null);
 
-      axios.patch(`http://localhost:8000/state/${id}`, {
+      axios.patch(`${apiURl + id}`, {
           title: text,
       });
   };
