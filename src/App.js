@@ -15,10 +15,8 @@ function App() {
   }, []);
 
   const removeTodo = (id) => {
-    setState(state.filter((todo) => {
-      axios.delete(`http://localhost:8000/state/${id}`);
-      return todo.id !== id;
-    }));
+    axios.delete(`http://localhost:8000/state/${id}`);
+    setState(state.filter((todo) => todo.id !== id));
   };
 
   const handleSubmit = (ev) => {

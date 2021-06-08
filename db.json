@@ -1,24 +1,14 @@
 {
   "state": [
     {
-      "id": 1623076743117,
-      "title": "Выполнить 1-е",
-      "completed": false
-    },
-    {
-      "id": 1623076748836,
-      "title": "Выполнить второе",
-      "completed": false
-    },
-    {
-      "id": 1623076750252,
-      "title": "Выполнить 3-е",
-      "completed": false
-    },
-    {
-      "id": 1623076751404,
-      "title": "Выполнить 4-е",
+      "id": 1623147130843,
+      "title": "Make first",
       "completed": true
+    },
+    {
+      "id": 1623147215771,
+      "title": "Make second",
+      "completed": false
     }
   ]
 }

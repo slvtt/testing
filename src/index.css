@@ -41,4 +41,15 @@ code {
 .container_for_item{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.items{
+  display: flex;
+  width: 50%;
+}
+
+.button{
+  height: 30px;
+  border-radius: 8px;
 }
